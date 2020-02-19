@@ -1327,16 +1327,12 @@ function FindVSTest(pathToVSWhere) {
         };
         // Run VSWhere to tell us where VSTest is
         const vsWhereExe = path.join(pathToVSWhere, 'vswhere.exe');
-        yield exec.exec(vsWhereExe, [
-            '-latest',
-            '-property',
-            'installationPath'
-        ], options);
+        yield exec.exec(vsWhereExe, ['-latest', '-property', 'installationPath'], options);
         if (vsTestPath === '') {
             core.setFailed('Unable to find VSTest.console.exe');
         }
         vsTestPath +=
-            '\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe';
+            '\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow';
         const folderForVSTest = path.dirname(vsTestPath);
         core.debug(`VSTest = ${vsTestPath}`);
         core.debug(`Folder for VSTest ${folderForVSTest}`);
