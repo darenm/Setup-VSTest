@@ -5,7 +5,7 @@ import * as path from 'path'
 import * as fs from 'fs'
 import {ExecOptions} from '@actions/exec/lib/interfaces'
 
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
   try {
     // VSTest is not a tool we download
     // as Visual Studio is installed on Windows machines
@@ -64,7 +64,7 @@ async function run(): Promise<void> {
 
 run()
 
-async function FindVSTest(pathToVSWhere: string): Promise<string> {
+export async function FindVSTest(pathToVSWhere: string): Promise<string> {
   let vsTestPath = ''
 
   const options: ExecOptions = {}
@@ -86,11 +86,8 @@ async function FindVSTest(pathToVSWhere: string): Promise<string> {
   if (vsTestPath === '') {
     core.setFailed('Unable to find VSTest.console.exe')
   }
-
-  vsTestPath += '\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow'
-
-  const folderForVSTest = path.dirname(vsTestPath)
-  core.debug(`VSTest = ${vsTestPath}`)
+  const folderForVSTest = `${vsTestPath.trim()}\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow`
+  core.debug(`VSTest = ${vsTestPath.trim()}`)
   core.debug(`Folder for VSTest ${folderForVSTest}`)
 
   return folderForVSTest

@@ -1314,6 +1314,7 @@ function run() {
         }
     });
 }
+exports.run = run;
 run();
 function FindVSTest(pathToVSWhere) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -1331,14 +1332,13 @@ function FindVSTest(pathToVSWhere) {
         if (vsTestPath === '') {
             core.setFailed('Unable to find VSTest.console.exe');
         }
-        vsTestPath +=
-            '\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow';
-        const folderForVSTest = path.dirname(vsTestPath);
-        core.debug(`VSTest = ${vsTestPath}`);
+        const folderForVSTest = `${vsTestPath.trim()}\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow`;
+        core.debug(`VSTest = ${vsTestPath.trim()}`);
         core.debug(`Folder for VSTest ${folderForVSTest}`);
         return folderForVSTest;
     });
 }
+exports.FindVSTest = FindVSTest;
 
 
 /***/ }),
