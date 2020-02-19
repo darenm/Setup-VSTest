@@ -79,19 +79,12 @@ async function FindVSTest(pathToVSWhere: string): Promise<string> {
   const vsWhereExe = path.join(pathToVSWhere, 'vswhere.exe')
   await exec.exec(
     vsWhereExe,
-    [
-      '-latest',
-      '-products',
-      'Microsoft.VisualStudio.Workload.ManagedDesktop',
-      '-requiresAny',
-      '-property',
-      'installationPath'
-    ],
+    ['-latest', '-property', 'installationPath'],
     options
   )
 
   if (vsTestPath === '') {
-    core.setFailed('Unable to find VSTest.exe')
+    core.setFailed('Unable to find VSTest.console.exe')
   }
 
   vsTestPath +=

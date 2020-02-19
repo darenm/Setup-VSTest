@@ -1329,14 +1329,11 @@ function FindVSTest(pathToVSWhere) {
         const vsWhereExe = path.join(pathToVSWhere, 'vswhere.exe');
         yield exec.exec(vsWhereExe, [
             '-latest',
-            '-products',
-            'Microsoft.VisualStudio.Workload.ManagedDesktop',
-            '-requiresAny',
             '-property',
             'installationPath'
         ], options);
         if (vsTestPath === '') {
-            core.setFailed('Unable to find VSTest.exe');
+            core.setFailed('Unable to find VSTest.console.exe');
         }
         vsTestPath +=
             '\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe';
