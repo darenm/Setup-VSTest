@@ -1,10 +1,9 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
-inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+name: 'Setup VSTest.console.exe'
+description: 'Uses VSWhere.exe to locate latest VSTest.console.exe & put it into the PATH'
+author: 'Daren May'
 runs:
   using: 'node12'
   main: 'dist/index.js'
+branding:
+  icon: 'terminal'
+  color: 'blue'
