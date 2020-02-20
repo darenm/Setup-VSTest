@@ -1,6 +1,7 @@
-<p align="center">
-  <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-</p>
+[![typescript-action status](https://github.com/actions/typescript-action/workflows/build-test/badge.svg)](https://github.com/actions/typescript-action/workflows/build-test/badge.svg)
+[![Downloads](https://img.shields.io/github/downloads/darenm/Setup-VSTest/total.svg?label=Downloads)](https://github.com/darenm/Setup-VSTest/releases/)
+[![Release](https://img.shields.io/github/release/darenm/Setup-VSTest.svg?label=Release)](https://github.com/darenm/Setup-VSTest/releases)
+[![Contributors](https://img.shields.io/github/contributors/darenm/Setup-VSTest?label=Contributors)](https://github.com/darenm/Setup-VSTest/graphs/contributors)
 
 # Create a JavaScript Action using TypeScript
 
