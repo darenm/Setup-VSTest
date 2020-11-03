@@ -22,7 +22,7 @@ export async function run(): Promise<void> {
 
     // Try & find tool in cache
     //let directoryToAddToPath: string
-    const directoryToAddToPath = await tc.find('vswhere', '2.7.1')
+    const directoryToAddToPath = tc.find('vswhere', '2.7.1')
 
     if (directoryToAddToPath) {
       core.debug(
@@ -33,7 +33,7 @@ export async function run(): Promise<void> {
       core.debug(`VSTestPath == ${VSTestPath}`)
 
       // Add folder where VSTest lives to the PATH
-      await core.addPath(VSTestPath)
+      core.addPath(VSTestPath)
       return
     }
 
@@ -56,7 +56,7 @@ export async function run(): Promise<void> {
     core.debug(`VSTestPath == ${VSTestPath}`)
 
     // Add folder where VSTest lives to the PATH
-    await core.addPath(VSTestPath)
+    core.addPath(VSTestPath)
   } catch (error) {
     core.setFailed(error.message)
   }
