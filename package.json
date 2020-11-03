@@ -1,22 +1,21 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
+  "name": "Setup-VSTest",
+  "version": "1.1.1",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "This action sets up VSTest.console.exe as a CLI tool for use in actions",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/**/*.ts",
-    "lint-fix": "eslint src/**/*.ts --fix",
-    "pack": "ncc build",
+    "package": "ncc build --source-map --license licenses.txt",
     "test": "jest",
-    "all": "npm run build && npm run format && npm run lint && npm run pack && npm test"
+    "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/darenm/Setup-VSTest.git"
   },
   "keywords": [
     "actions",
@@ -27,11 +26,10 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/io": "^1.0.0",
-    "@actions/exec": "^1.0.0",
-    "@actions/github": "^1.0.0",
-    "@actions/tool-cache": "^1.0.0",
-    "semver": "^6.1.1"
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^1.1.0",
+    "@actions/io": "^1.0.2",
+    "@actions/tool-cache": "^1.6.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.10",
@@ -41,7 +39,6 @@
     "eslint": "^7.8.1",
     "eslint-plugin-github": "^4.1.1",
     "eslint-plugin-jest": "^23.20.0",
-    "@types/semver": "^6.0.0",
     "jest": "^24.9.0",
     "jest-circus": "^26.4.2",
     "js-yaml": "^3.14.0",
